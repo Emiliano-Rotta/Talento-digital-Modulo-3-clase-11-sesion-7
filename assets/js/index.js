@@ -31,7 +31,7 @@
 
 // replaceAll()
 
-let alumnosChat = `Nombre Rodolfo, nombre Juan y nombre Carlos` 
+// let alumnosChat = `Nombre Rodolfo, nombre Juan y nombre Carlos` 
 
 //Sintaxis: variable.replaceAll("palabraACambiar", "nuevaPalabra")
 
@@ -134,6 +134,10 @@ let string = " Javascript "
 
 // const frase = "Me gusta la pizza y la pizza es mi comida favorita.";
 
+// console.log(frase);
+// let nuevafrase = frase.replaceAll("pizza","pasta");
+// console.log(nuevafrase);
+
 
 //--------------------------------------
 // Ejercicio 7: Normalización de una frase
@@ -142,13 +146,22 @@ let string = " Javascript "
 //la expresion regular es /\s+/g 
 
 // const frase = "  Bienvenidos   a  JavaScript  ";
+// var patron = /\s+/g
+// var nuevaFrase = frase.trim().replaceAll(patron ," ")
+// console.log({nuevaFrase})
+
+
 
 //--------------------------------------
 // Ejercicio 8: Reemplazo de texto con sensibilidad de caso
 // Consigna: Dada la cadena "Javascript es genial, JAVASCRIPT es asombroso", reemplaza todas las ocurrencias de "Javascript" sin importar el caso por "JS".
 
 // const cadena = "Javascript es genial, JAVASCRIPT es asombroso.";
-
+// var patron = /javascript/gi
+// console.log(cadena.replaceAll(patron, (encontrado) => {
+//     if(encontrado === "Javascript") return "JS"
+//     if(encontrado === "JAVASCRIPT") return "JS"
+// }))
 
 
 //--------------------------------------
@@ -157,7 +170,9 @@ let string = " Javascript "
 // Buscar la expresion regular acorde
 
 // const frase = "El sol brilla en el sol radiante.";
-
+// let patron = /^sol/
+// const nuevaFrase = frase.replace(patron, "luna")
+// console.log(nuevaFrase)
 
 
 //--------------------------------------
@@ -165,3 +180,9 @@ let string = " Javascript "
 // Consigna: Dada la línea de código var x = 5; , elimina los espacios innecesarios al final de la línea de código y reemplaza var por let.
 
 // const codigo = "var x = 5;    ";
+
+const codigo = "var x = 5;    ";
+console.log(codigo.trimEnd().replace("var", "let"));
+
+//tambien puede ser
+console.log(codigo.replaceAll(/^\s+|\s+$|\s+(?=\s)/g, "").replace("var", "let"));
